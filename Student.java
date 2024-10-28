@@ -1,46 +1,54 @@
-package j14_Serialization;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
-import java.util.Scanner;
-
+package j20_Collection;
 
 public class Student {
-	public static void main(String[] args) {
-		
-		Scanner scanner = new Scanner(System.in);
-		try
-		{
-		System.out.print("Enter name: ");
-		String name = scanner.nextLine();
-		
-		
-		String fname = "E:\\java programs"+name+".ser";
-		File f = new File(fname);
-		if(f.exists()==true)
-		{
-			throw new IOException("Student data already exists");
-		}
-		
-		System.out.print("Enter reg.no: ");
-		int reg_no= scanner.nextInt();
-		System.out.print("Enter marks: ");
-		int marks = scanner.nextInt();
-		
-		Stu s = new Stu(name,reg_no,marks);
-		
-		FileOutputStream fos = new FileOutputStream(fname);
-		ObjectOutputStream oos = new ObjectOutputStream(fos);
-		oos.writeObject(s);
-		oos.close();
-		fos.close();
-		System.out.println("Student data saved");
-		}
-		catch(IOException e)
-		{
-			System.out.println(e.getMessage());
-		}
-	scanner.close();
-		}
+	  private int id;
+	    private String name;
+	    private String department;
+	    private int yearOfPassing;
+
+	    public Student(int id, String name, String department, int yearOfPassing) {
+	        this.id = id;
+	        this.name = name;
+	        this.department = department;
+	        this.yearOfPassing = yearOfPassing;
+	    }
+
+	    public int getId() {
+	        return id;
+	    }
+
+	    public void setId(int id) {
+	        this.id = id;
+	    }
+
+	    public String getName() {
+	        return name;
+	    }
+
+	    public void setName(String name) {
+	        this.name = name;
+	    }
+
+	    public String getDepartment() {
+	        return department;
+	    }
+
+	    public void setDepartment(String department) {
+	        this.department = department;
+	    }
+
+	    public int getYearOfPassing() {
+	        return yearOfPassing;
+	    }
+
+	    public void setYearOfPassing(int yearOfPassing) {
+	        this.yearOfPassing = yearOfPassing;
+	    }
+
+	    @Override
+	    public String toString() {
+	        return "ID: " + id + ", Name: " + name + ", Department: " + department + ", Year of Passing: " + yearOfPassing;
+	    }
 }
+
+
