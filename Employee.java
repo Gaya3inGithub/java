@@ -1,35 +1,27 @@
-package j9_Inheritance;
+package io_packages;
 
-import java.util.Scanner;
+import java.io.Serializable;
 
-public class Employee
-{
+public class Employee implements Serializable {
+	public  String name;
+	public int id,salary;
+	public Employee(String name, int id,int salary) {
+		this.id=id;
+		this.name=name;
+		this.salary=salary;
+	}
 	
-	   public int empid;
-	   public String n;
-	   public int salary;
-	   
-	   public void empdata()
-	   {
-		   Scanner scanner = new Scanner(System.in);
-			 System.out.print("Enter employee ID: ");
-			empid = scanner.nextInt();
-			scanner.nextLine();
-			
-			 System.out.print("Enter employee name: ");
-		   	n= scanner.nextLine();
-			
-			 System.out.print("Enter employee salary: ");
-			salary = scanner.nextInt();
-			scanner.nextLine();
-	   }
-	   
-	   public void empdisplay()
-	   {
-	       System.out.println("ID : "+ empid);
-	       System.out.println("NAME : "+n);
-	       System.out.println("SALARY : "+ salary);
-	   }
-	   
-}
 
+	public String getName() {
+		return name;
+	}
+	
+	public int getId() {
+		return id;
+	}
+	
+	public int getSalary() {
+		return salary;
+	}
+
+}

@@ -1,29 +1,20 @@
-package j9_Inheritance;
-import java.util.Scanner;
-public class BankAccount {
-public String accountNumber;
-public String accountHolderName;
-public int balance;
-public void inputAccountDetails()
-{
-	Scanner scanner = new Scanner(System.in);
-	
-    System.out.print("Enter account number: ");
-    accountNumber = scanner.nextLine();
-    
-    System.out.print("Enter account holder's name: ");
-    accountHolderName = scanner.nextLine();
-    
-    System.out.print("Enter initial balance: ");
-    balance = scanner.nextInt();
-    scanner.nextLine(); 
-  
-}
+package J12;
 
-public void display()
-{
-	System.out.println("Account Number: "+accountNumber);
-	System.out.println("Account Holder: "+accountHolderName);
-	System.out.println("Balance: Rs."+balance);
-}
+public class BankAccount {
+    private double balance;
+    public BankAccount(double initialBalance) {
+        this.balance = initialBalance;
+    }
+    public void withdraw(double amount) throws InsufficientFundsException {
+        if (amount > balance) {
+            throw new InsufficientFundsException("Withdrawal amount exceeds the current balance.");
+        } else {
+            balance -= amount;
+            System.out.println("Withdrawal of $" + amount + " successful.");
+            System.out.println("Remaining balance: $" + balance);
+        }
+    }
+    public double getBalance() {
+        return balance;
+    }
 }

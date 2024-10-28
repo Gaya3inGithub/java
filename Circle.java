@@ -1,15 +1,22 @@
-package j8_OOPS;
-public class Circle 
-{
+package Abstraction;
+
+public class Circle extends Shape{
 public double radius;
-public double circleArea(double radius)
+	public Circle(double r) 
 	{
-	double Area = 3.14*radius*radius;
-	return Area;
+		radius=r;
 	}
-public double circlePerimeter(double radius) 
-	{
-	double Perimeter =2 * 3.14 * radius;
-	return Perimeter;
-	}
+
+@Override
+public double calculateArea()
+{
+	 radius = 3.14*radius*radius;
+	 return radius;
+}
+
+@Override
+public void displayShapeName() 
+{
+  System.out.println("Shape Name: Circle");   
+}
 }

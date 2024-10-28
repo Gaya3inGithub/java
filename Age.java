@@ -1,22 +1,34 @@
-package j3_ControlStructure;
+package J12;
+import java.util.InputMismatchException;
 import java.util.Scanner;
+
 public class Age {
+
 	public static void main(String[] args) {
-	Scanner s = new Scanner(System.in);
-	System.out.print("Enter age: ");
-	int age = s.nextInt();
-	if(age>20)
-	{
-		System.out.print("Enter salary: ");
-		int salary = s.nextInt();
-		if(salary>25000)
-		{
-			System.out.println("loan sactioned");
-		}
-		else
-			System.out.println("Rejected");
-	}
-s.close();
+    Scanner scanner = new Scanner(System.in);
+    try
+    {
+    System.out.print("Enter age: ");
+    int age = scanner.nextInt();
+    if(age>=18)
+    {
+    	System.out.println(" Eligible to vote");
+    }
+    else
+    {
+    	System.out.println(" not eligible to vote");
+    }
+    }
+    catch(InputMismatchException e)
+    {
+    	System.out.println(" Not a valid number \n enter numbers only ");
+    }
+    finally
+    {
+    	System.out.println(" Eligibility checked");
+    }
+    scanner.close();
+
 	}
 
 }
